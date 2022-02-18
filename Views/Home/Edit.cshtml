@@ -1,0 +1,48 @@
+@model Post
+
+<div class="container w-75 mx-auto">
+    <h2 class="text-center">Edit Post</h2>
+
+    @* <form href="posts/create" method="POST"> *@
+    <form class="shadow p-3 rounded" asp-controller="Home" asp-action="Update" asp-route-postId="@Model.DishId"
+        method="POST">
+
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <span asp-validation-for="Name" class="text-danger font-weight-bold">
+            </span>
+            <input class="form-control" asp-for="Name">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Chef"></label>
+            <span asp-validation-for="Chef" class="text-danger font-weight-bold">
+            </span>
+            <textarea class="form-control" asp-for="Chef"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Calories"></label>
+            <input asp-for="Calories" class="form-control">
+            <span class="text-danger" asp-validation-for="Calories"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Tastiness"></label>
+            <select asp-for="Tastiness" class="form-control">
+                <option value="">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Tastiness"></span>
+
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+        <button class="btn btn-success">Update</button>
+    </form>
+</div>

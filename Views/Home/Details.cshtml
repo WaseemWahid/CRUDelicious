@@ -1,0 +1,17 @@
+@model Post
+
+<div class="card shadow rounded mx-auto w-100 mb-3">
+    <h1 class="card-title text-center bg-dark text-light py-2 rounded-top">
+        @Model.Name
+    </h1>
+    <h4 class= "card-title text-center bg-light text-dark py-2 rounded-top">@Model.Chef</h4>
+    <div class="card-body">
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text">Calories: @Model.Calories</p>
+        <p class="card-text">Tastiness: @Model.Tastiness</p>
+        <p><a asp-controller="Home" asp-action="Edit" asp-route-dishId=@Model.DishId class="btn btn-warning">Edit</a></p>
+        <form asp-controller="Home" asp-action="Delete" asp-route-postId="@Model.DishId" method="POST">
+            <button class="btn btn-danger btn-sm">Delete</button>
+        </form>
+        <small class="text-muted"> Submitted on: @Model.CreatedAt </small>
+    </div>
